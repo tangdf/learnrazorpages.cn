@@ -103,7 +103,7 @@ namespace LearnRazorPages.Cahce
             VaryByHeader = VaryByHeader ?? selectedProfile?.VaryByHeader;
             VaryByQueryKeys = VaryByQueryKeys ?? selectedProfile?.VaryByQueryKeys;
 
-            var hostingEnvironment = serviceProvider.GetRequiredService<IHostingEnvironment>();
+            var webHostEnvironment = serviceProvider.GetRequiredService<IWebHostEnvironment>();
 
             // ResponseCacheFilter cannot take any null values. Hence, if there are any null values,
             // the properties convert them to their defaults and are passed on.
@@ -114,7 +114,7 @@ namespace LearnRazorPages.Cahce
                 NoStore = _noStore,
                 VaryByHeader = VaryByHeader,
                 VaryByQueryKeys = VaryByQueryKeys,
-            }, hostingEnvironment);
+            }, webHostEnvironment);
         }
     }
 }

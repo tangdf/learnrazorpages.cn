@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 
 namespace LearnRazorPages
@@ -22,7 +23,7 @@ namespace LearnRazorPages
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddRazorPagesOptions(options =>
+            services.AddRazorPages(options =>
             {
                 options.Conventions.AddPageRoute("/index", "{*url}");
             });
@@ -37,7 +38,7 @@ namespace LearnRazorPages
         }
  
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
             if (env.IsDevelopment())
@@ -58,10 +59,11 @@ namespace LearnRazorPages
                         context.Context.Response.Headers[HeaderNames.CacheControl] = "public,max-age=" + durationInSeconds;
                 }
             });
+            app.UseRouting();
 
             app.UseResponseCaching();
 
-            app.UseMvc();
+            app.UseEndpoints(builder=>builder.MapRazorPages());
         }
     }
 }

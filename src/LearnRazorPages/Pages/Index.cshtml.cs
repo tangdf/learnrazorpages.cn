@@ -22,12 +22,12 @@ namespace LearnRazorPages.Pages
     [Cahce.ResponseCache(Duration = 60 * 6)]
     public class IndexModel : PageModel
     {
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly List<PageInfo> _pageInfos;
 
-        public IndexModel(IHostingEnvironment hostingEnvironment, IOptions<List<PageInfo>> configuration)
+        public IndexModel(IWebHostEnvironment webHostEnvironment, IOptions<List<PageInfo>> configuration)
         {
-            this._hostingEnvironment = hostingEnvironment;
+            this._webHostEnvironment = webHostEnvironment;
             this._pageInfos = configuration.Value;
         }
 
@@ -71,7 +71,7 @@ namespace LearnRazorPages.Pages
             if (string.IsNullOrEmpty(url))
                 url = "home";
 
-            var rootPath = this._hostingEnvironment.ContentRootPath;
+            var rootPath = this._webHostEnvironment.ContentRootPath;
 
             var path = Path.Combine(rootPath, "markdown", url + ".md");
 

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.ResponseCaching;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 
 namespace LearnRazorPages.Cahce
@@ -17,7 +18,7 @@ namespace LearnRazorPages.Cahce
     public class ResponseCacheFilter : IPageFilter
     {
         private readonly CacheProfile _cacheProfile;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _webHostEnvironment;
         private int? _cacheDuration;
         private ResponseCacheLocation? _cacheLocation;
         private bool? _cacheNoStore;
@@ -29,11 +30,11 @@ namespace LearnRazorPages.Cahce
         /// </summary>
         /// <param name="cacheProfile">The profile which contains the settings for
         /// <see cref="ResponseCacheFilter"/>.</param>
-        /// <param name="hostingEnvironment"></param>
-        public ResponseCacheFilter(CacheProfile cacheProfile, IHostingEnvironment hostingEnvironment)
+        /// <param name="webHostEnvironment"></param>
+        public ResponseCacheFilter(CacheProfile cacheProfile, IWebHostEnvironment webHostEnvironment)
         {
             _cacheProfile = cacheProfile;
-            _hostingEnvironment = hostingEnvironment;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         /// <summary>
@@ -114,7 +115,7 @@ namespace LearnRazorPages.Cahce
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (this._hostingEnvironment.IsDevelopment())
+            if (this._webHostEnvironment.IsDevelopment())
                 return;
 
             // If there are more filters which can override the values written by this filter,
