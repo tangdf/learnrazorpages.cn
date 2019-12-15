@@ -1,0 +1,124 @@
+﻿@using Microsoft.Extensions.Options
+@using Web
+@inject IOptions<List<PageInfo>> PageOptions;
+
+    @{
+        var currentPageInfo = (PageInfo) ViewData["CurrentPageInfo"];
+        var canonical = "https://www.learnrazorpages.cn" + @currentPageInfo.Url;
+    }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="@currentPageInfo.Description"/>
+    <title>@currentPageInfo.Title | ASP.NET Core Razor 页面使用教程</title>
+    <link rel="canonical" href="@canonical"/>
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat|Permanent+Marker|Oswald"/>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/prism.css" asp-append-version="true"/>
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/prism.min.css" asp-append-version="true"/>
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
+    </environment>
+</head>
+<body>
+<div class="navbar navbar-default navbar-static-top">
+    <div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">
+                <div class="visible-lg">
+                    <a href="/">Learn Razor Pages</a>
+                    <br/>
+                </div>
+             
+                <span class="byline">ASP.NET Core Razor 页面使用教程</span>
+
+            </div>
+            <div class="banner">
+            </div>
+          
+        </div>
+        <div class="myblog">
+            <ul>
+                <li class="visible-lg"> 英文站点：<a href="http://www.learnrazorpages.com/" target="_blank">http://www.learnrazorpages.com/</a></li>
+                <li> 我的博客： <a href="http://www.cnblogs.com/tdfblog/" target="_blank">http://www.cnblogs.com/tdfblog/</a></li>
+                <li class="visible-lg">  我的Github：<a href="https://github.com/tangdf" target="_blank">https://github.com/tangdf</a></li>
+            </ul>
+               
+           
+        </div>
+    </div>
+</div>
+
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav collapse  navbar-collapse">
+        <nav class="main-nav">
+            <ul class="nav nav-level-one" id="side-menu">
+                @foreach (var pageInfo in this.PageOptions.Value) {
+                    if (pageInfo.Menu)
+                    {
+                        <li>
+                            <a itemprop="url" href="@pageInfo.Url">@pageInfo.Name</a>
+                            @if (pageInfo.Childs != null && pageInfo.Childs.Count > 0)
+                            {
+                                <ul class="nav-level-two">
+                                    @foreach (var childPageInfo in pageInfo.Childs)
+                                    {
+                                        if (childPageInfo.Menu)
+                                        {
+                                            <li>
+                                                <a itemprop="url" href="@childPageInfo.Url">@childPageInfo.Name</a>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            }
+                        </li>
+                    }
+                }
+            </ul>
+        </nav>
+        <hr/>
+        <footer>
+            <p>&copy; 2018 - Razor 页面使用教程<br />保留所有权利 &nbsp;<a href="http://www.miitbeian.gov.cn" target="_blank">鄂ICP备18002601号</a></p>
+        </footer>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+
+<div id="page-wrapper">
+    <div class="body-content">
+        @RenderBody()
+    </div>
+</div>
+
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<environment include="Development">
+<script src="~/js/site.js" asp-append-version="true"></script>
+</environment>
+<environment exclude="Development">
+<script src="~/js/site.min.js" asp-append-version="true"></script>
+</environment>
+<script src="~/js/prism.js" asp-append-version="true"></script>
+<div style="display: none">
+    <script src="https://s13.cnzz.com/z_stat.php?id=1272835103&web_id=1272835103" language="JavaScript"></script>
+</div>
+<!--Cached Time:@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss ffff")-->
+</body>
+</html>

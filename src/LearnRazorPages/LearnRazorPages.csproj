@@ -1,0 +1,114 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework> 
+	<PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="markdown\asp-net-core_CN.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="markdown\advanced.en.md" />
+    <Content Include="markdown\advanced.md" />
+    <Content Include="markdown\advanced\custom-tag-helpers.en.md" />
+    <Content Include="markdown\advanced\custom-tag-helpers.md" />
+    <Content Include="markdown\advanced\dependency-injection.en.md" />
+    <Content Include="markdown\advanced\dependency-injection.md" />
+    <Content Include="markdown\asp-net-core.en.md" />
+    <Content Include="markdown\asp-net-core.md" />
+    <Content Include="markdown\configuration.en.md" />
+    <Content Include="markdown\configuration.md" />
+    <Content Include="markdown\configuration\custom-errors.md" />
+    <Content Include="markdown\first-look.en.md" />
+    <Content Include="markdown\first-look.md" />
+    <Content Include="markdown\home.en.md" />
+    <Content Include="markdown\home.md" />
+    <Content Include="markdown\identity.en.md" />
+    <Content Include="markdown\identity.md" />
+    <Content Include="markdown\identity\customising-identity.en.md" />
+    <Content Include="markdown\identity\customising-identity.md" />
+    <Content Include="markdown\identity\identity.en.md" />
+    <Content Include="markdown\identity\identity.md" />
+    <Content Include="markdown\middleware.en.md" />
+    <Content Include="markdown\middleware.md" />
+    <Content Include="markdown\miscellaneous\constraints.md" />
+    <Content Include="markdown\notfound.en.md" />
+    <Content Include="markdown\notfound.md" />
+    <Content Include="markdown\razor-pages.en.md" />
+    <Content Include="markdown\razor-pages.md" />
+    <Content Include="markdown\razor-pages\action-results.en.md" />
+    <Content Include="markdown\razor-pages\action-results.md" />
+    <Content Include="markdown\razor-pages\files.en.md" />
+    <Content Include="markdown\razor-pages\files.md" />
+    <Content Include="markdown\razor-pages\files\layout.en.md" />
+    <Content Include="markdown\razor-pages\files\layout.md" />
+    <Content Include="markdown\razor-pages\files\viewimports.en.md" />
+    <Content Include="markdown\razor-pages\files\viewimports.md" />
+    <Content Include="markdown\razor-pages\files\viewstart.en.md" />
+    <Content Include="markdown\razor-pages\files\viewstart.md" />
+    <Content Include="markdown\razor-pages\forms.en.md" />
+    <Content Include="markdown\razor-pages\forms.md" />
+    <Content Include="markdown\razor-pages\handler-methods.en.md" />
+    <Content Include="markdown\razor-pages\handler-methods.md" />
+    <Content Include="markdown\razor-pages\model-binding.en.md" />
+    <Content Include="markdown\razor-pages\model-binding.md" />
+    <Content Include="markdown\razor-pages\pagemodel.en.md" />
+    <Content Include="markdown\razor-pages\pagemodel.md" />
+    <Content Include="markdown\razor-pages\partial-pages.md" />
+    <Content Include="markdown\razor-pages\routing.en.md" />
+    <Content Include="markdown\razor-pages\routing.md" />
+    <Content Include="markdown\razor-pages\tag-helpers.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\anchor-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\anchor-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\cache-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\cache-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\distributed-cache-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\distributed-cache-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\environment-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\environment-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\form-action-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\form-action-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\form-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\form-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\image-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\image-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\input-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\input-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\label-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\label-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\link-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\link-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\option-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\option-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\script-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\script-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\select-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\select-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\textarea-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\textarea-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\validation-message-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\validation-message-tag-helper.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\validation-summary-tag-helper.en.md" />
+    <Content Include="markdown\razor-pages\tag-helpers\validation-summary-tag-helper.md" />
+    <Content Include="markdown\razor-pages\validation.en.md" />
+    <Content Include="markdown\razor-pages\validation.md" />
+    <Content Include="markdown\razor-pages\view-components.en.md" />
+    <Content Include="markdown\razor-pages\view-components.md" />
+    <Content Include="markdown\security\request-verification.en.md" />
+    <Content Include="markdown\security\request-verification.md" />
+    <Content Include="markdown\startup.en.md" />
+    <Content Include="markdown\startup.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Markdig" Version="0.14.9" />
+      <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties appsettings_1json__JSONSchema="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

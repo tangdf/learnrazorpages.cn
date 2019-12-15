@@ -1,0 +1,54 @@
+﻿@page "{errorcode?}"
+@using LearnRazorPages.Pages
+@using Markdig.Extensions.AutoIdentifiers
+@using Markdig.Renderers.Html
+@using Markdig.Syntax
+@model LearnRazorPages.Pages.IndexModel
+@{
+    ViewData["CurrentPageInfo"] = this.Model.CurrentPageInfo;
+}
+
+<div class="row">
+    <div class="col-sm-9">
+        <div class="row">
+            <article itemscope itemtype="http://schema.org/TechArticle">
+
+                @Html.Raw(Model.HtmlContent)
+                <br/>
+                如果您在查阅过程中，发现内容存在错误，请到我的博客中留言，谢谢，<a href="http://www.cnblogs.com/tdfblog/p/learn-razor-pages.html">http://www.cnblogs.com/tdfblog/p/learn-razor-pages.html</a>
+                <hr />
+                @if (this.Model.LastUpdatedtime.HasValue)
+    {
+            <section id="file-meta">
+                <span class="file-meta-label">最后一次更新时间：</span> <span itemprop="dateModified">@this.Model.LastUpdatedtime.Value.ToString("yyyy-MM-dd hh:mm:ss")</span><br />
+
+            </section>
+}
+            </article>
+
+        </div>
+
+    </div>
+    <div class="col-sm-3">
+        <div id="doc-outline">
+            <h3 class="doc-outline">目录</h3>
+            <nav class="doc-outline">
+                <ul>
+                    @if (Model.HeadingLinks != null && Model.HeadingLinks.Count > 0) {
+                        foreach (var headingLink in Model.HeadingLinks) {
+                            <li><a href="#@headingLink.Id" class="page-scroll">@headingLink.Text</a></li>
+                        }
+                    }
+                </ul>
+            </nav>
+            <div class="rectangle">
+
+            </div>
+            <div class="skyscraper">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
